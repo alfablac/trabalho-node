@@ -1,0 +1,37 @@
+<h1>Store</h1>
+<p>Welcome to our product store</p>
+
+<ul>
+    {{#each products}}
+    <li>
+        <p><b>{{this.name}}</b>: {{this.description}}</p>
+        <p><b>Price</b>: ${{this.price}}</p>
+    </li>
+        <form action="/products" method="POST">
+        <p>
+            <input type="hidden" name="id" id="id" value="{{this.id}}" required>
+        </p>
+        <p>
+            <label>Nome</label><br>
+            <input type="text" name="name" required>
+        </p>
+        <p>
+            <label>Comentario</label><br>
+            <input type="text" name="comments" required>
+        </p>
+        <button type="submit">Enviar</button>
+    </form>
+{{/each}}
+    <br/>
+    <h3>Comentarios</h3>
+    {{#each comments}}
+        
+        <p><b>{{this.author}}</b>: </p>
+        <p><i>{{this.comment}}</i></p>
+    
+    {{/each}}
+    
+
+</ul>
+
+

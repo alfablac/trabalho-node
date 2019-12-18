@@ -1,0 +1,74 @@
+<div class="container">
+    <nav class="navbar navbar-expand-xl navbar-dark bg-dark pmd-navbar pmd-z-depth fixed-top">
+        <a class="navbar-brand" href="#">App To-DO List Node</a>
+        <div class="dropdown pmd-dropdown pmd-user-info ml-auto">
+             <a class="btn btn-light"  href="/lists">Voltar</a>
+            <a  class="btn btn-light"  href="/logout">Logout</a>
+       
+        </div>
+    </nav>
+
+    <div class="col-sm-6">
+        <div class="form-group">
+            <h1>To-Do <small>Task</small></h1>
+            <form role="form" action="/tasks" method="POST">
+                <input type="text" hidden="true" class="form-control" id="id" value={{listChave}} name="list">
+                <input type="text" class="form-control" placeholder="Your Task Name" name="task">
+                <button type="submit" class="btn btn btn-primary">Adicionar</button>
+            </form>
+
+        </div>
+        <div></div>
+        <ul class="list-unstyled" id="todo">
+            {{#each tasks}}
+            <li>
+                <p><b>
+                        {{#if this.status}}
+                        <form role="form" action="/tasks/{{this.id}}/edit" method="POST">
+                            <input type="text" hidden class="form-control" value={{listChave}} name="listChave">
+                            <input type="text" disabled class="form-control" value={{this.taskName}} name="task">
+                            <button type="button" disabled class="btn btn-info">Editar</button>
+                        </form>
+
+                        <form role="form" action="/tasks/{{this.id}}/remove" method="POST">
+                            <input type="text" hidden class="form-control" value={{listChave}} name="listChave">
+                            <button type="submit" class="btn btn-danger">Remover</button>
+                        </form>
+
+                        <form role="form" action="/tasks/{{this.id}}/undone" method="POST">
+                            <input type="text" hidden class="form-control" value={{listChave}} name="listChave">
+                            <button type="submit" class="btn btn-warning">Marcar como não Lida</button>
+                        </form>
+
+
+
+                        {{else}}
+                        <form role="form" action="/tasks/{{this.id}}/edit" method="POST">
+                            <input type="text" hidden class="form-control" value={{listChave}} name="listChave">
+                            <input type="text" class="form-control" value={{this.taskName}} name="task">
+                            <button type="submit" class="btn btn-info">Editar</button>
+                        </form>
+
+
+                        <form role="form" action="/tasks/{{this.id}}/remove" method="POST">
+                            <input type="text" hidden class="form-control" value={{listChave}} name="listChave">
+                            <button type="submit" class="btn btn-danger">Remover</button>
+                        </form>
+
+                        <form role="form" action="/tasks/{{this.id}}/done" method="POST">
+                            <input type="text" hidden class="form-control" value={{listChave}} name="listChave">
+                            <button type="submit" class="btn btn-success">Marcar como Lida</button>
+                        </form>
+
+                        {{/if}}
+
+                    </b>
+
+                </p>
+            </li>
+            {{/each}}
+
+        </ul>
+    </div>
+</div>
+</div>

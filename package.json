@@ -1,0 +1,32 @@
+{
+  "name": "nodejs-knex",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "knex": "./node_modules/.bin/knex"
+  },
+  "dependencies": {
+    "connect-ensure-login": "^0.1.1",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "express-session": "^1.16.1",
+    "hbs": "~4.0.4",
+    "http-errors": "~1.6.3",
+    "knex": "^0.16.5",
+    "mongoose": "^5.5.8",
+    "morgan": "~1.9.1",
+    "sqlite3": "^4.0.8",
+    "passport": "^0.4.0",
+    "passport-github": "^1.1.0",
+    "passport-google-oauth20": "^2.0.0"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.12.0",
+    "bootstrap": "^4.4.1",
+    "font-awesome": "^4.7.0",
+    "jest": "^24.8.0",
+    "nodemon": "^1.19.0"
+  }
+}
